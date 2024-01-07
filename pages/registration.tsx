@@ -22,17 +22,6 @@ export default function Registration() {
   return (
     <>
       <form onSubmit={submitHandler} className='mx-5 mt-3'>
-        <div>
-          Roll Number<span className='text-red-600'>*</span>
-        </div>
-        <input
-          type='text'
-          name='rollNum'
-          placeholder='Enter Roll Number'
-          className={inputClassName}
-          value={formData.rollNum}
-          onChange={changeHandler}
-        />
         <div className={titleClassName}>
           Registration Number <span className='text-red-600'>*</span>
         </div>
@@ -42,6 +31,17 @@ export default function Registration() {
           placeholder='Enter Your Registration Number'
           className={inputClassName}
           value={formData.registrationNum}
+          onChange={changeHandler}
+        />
+        <div>
+          Roll Number<span className='text-red-600'>*</span>
+        </div>
+        <input
+          type='text'
+          name='rollNum'
+          placeholder='Enter Roll Number'
+          className={inputClassName}
+          value={formData.rollNum}
           onChange={changeHandler}
         />
         <div className={titleClassName}>

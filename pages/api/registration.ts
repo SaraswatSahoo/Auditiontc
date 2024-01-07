@@ -6,14 +6,14 @@ import errorMessage from "../../utils/ZErrorMessage";
 const IFormDataSchema = z.object({
   registrationNum: z.string().refine(
     (val) => {
-      const regex = new RegExp("^23U10\\d{3}$");
+      const regex = new RegExp("23U10[0-9]{3}");
       return val.match(regex);
     },
     { message: "Invalid Registration Number" }
   ),
   rollNum: z.string().refine(
     (val) => {
-      const regex = new RegExp("^23[A-Z]80\\d{3}$");
+      const regex = new RegExp("23[A-Z]80[0-9]{3}");
       return val.match(regex);
     },
     {
