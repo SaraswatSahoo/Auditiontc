@@ -26,18 +26,27 @@ export const authOptions: AuthOptions = {
     async signIn({ user }) {
       await dbConnect();
       const isUser = await User.findOne({ email: user.email });
+      console.log(isUser);
+
       if (!isUser) {
-        const newUser = await User.create({
-          name: user.name,
-          email: user.email,
-        });
-        await newUser.save();
+        try {
+          const newUser = new User({
+            name: user.name,
+            email: user.email,
+          });
+          await newUser.save();
+        } catch (error: any) {
+          console.log(error.message);
+          return false;
+        }
       }
       return true;
     },
   },
   pages: {
     signIn: "/",
+    error: "/",
+    signOut: "/",
   },
 };
 

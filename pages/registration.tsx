@@ -54,7 +54,7 @@ export default function Registration() {
             value={formData.role}
             onChange={changeHandler}
           >
-            <option value='' disabled selected hidden>
+            <option value='' disabled hidden>
               Select a role
             </option>
             <option value='web-developer'>Web Developer</option>

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { IUser } from "../types/types";
 
-const UserSchema = new mongoose.Schema<IUser>(
+const UserSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -15,10 +15,12 @@ const UserSchema = new mongoose.Schema<IUser>(
     registrationNum: {
       type: String,
       unique: true,
+      default: Math.random().toString(),
     },
     rollNum: {
       type: String,
       unique: true,
+      default: Math.random().toString(),
     },
     role: {
       type: String,
@@ -43,5 +45,5 @@ const UserSchema = new mongoose.Schema<IUser>(
   }
 );
 
-const User = mongoose.models?.User || mongoose.model<IUser>("User", UserSchema);
+const User = mongoose.models?.User || mongoose.model("User", UserSchema);
 export default User;
