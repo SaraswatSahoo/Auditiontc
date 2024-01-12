@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-[#2D3346] overflow-hidden;
+}
+
+.hoverEffect {
+  @apply hover:scale-110 transition-all duration-300;
+}

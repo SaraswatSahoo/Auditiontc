@@ -26,8 +26,6 @@ export const authOptions: AuthOptions = {
     async signIn({ user }) {
       await dbConnect();
       const isUser = await User.findOne({ email: user.email });
-      console.log(isUser);
-
       if (!isUser) {
         try {
           const newUser = new User({
