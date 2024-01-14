@@ -11,7 +11,8 @@ export type IUser = {
     | "web-developer"
     | "event-manager"
     | "graphics-designer"
-    | "content-writer";
+    | "content-writer"
+    | "admin";
   answers: string[];
   rating?: number;
 };

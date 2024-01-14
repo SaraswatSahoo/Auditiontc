@@ -25,6 +25,7 @@ const IFormDataSchema = z.object({
     "event-manager",
     "graphics-designer",
     "content-writer",
+    "admin",
   ]),
 });
 
