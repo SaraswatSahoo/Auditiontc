@@ -17,17 +17,9 @@ export default function App({
     event.preventDefault();
   };
 
-  const disbaleBackButton = () => {
-    window.history.pushState(null, "", window.location.href);
-    window.onpopstate = function () {
-      window.history.pushState(null, "", window.location.href);
-    };
-  };
-
   useEffect(() => {
     if (process.env["NODE_ENV"] === "production") {
       window.addEventListener("contextmenu", handleRightClick);
-      disbaleBackButton();
       return () => {
         window.removeEventListener("contextmenu", handleRightClick);
       };
@@ -37,7 +29,6 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <ToastContainer />
-      {/* <Navbar /> */}
       <Component {...pageProps} />
       <Navbar />
     </SessionProvider>

@@ -96,7 +96,7 @@ export default function Registration() {
       setloading(true);
       await axios.put("/api/registration", { ...formData });
       toastSuccess("Registration Successful");
-      router.push("/questions");
+      router.replace("/questions");
     } catch (error) {
       toastError("Invalid registration details");
     }

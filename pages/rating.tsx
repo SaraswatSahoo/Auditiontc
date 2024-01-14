@@ -49,7 +49,7 @@ export default function Rating() {
       setloading(true);
       await axios.put("/api/rating", { rating });
       toastSuccess("Rating submitted");
-      router.push("/thankyou");
+      router.replace("/thankyou");
     } catch (error: any) {
       toastError("Invalid rating");
     }

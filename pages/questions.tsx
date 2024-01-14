@@ -78,7 +78,7 @@ export default function Questions() {
       setloading(true);
       await axios.put("/api/questions", { answers });
       toastSuccess("Thanks for answering the questions");
-      router.push("/rating");
+      router.replace("/rating");
     } catch (error) {
       toastError("Invalid answers");
     }
