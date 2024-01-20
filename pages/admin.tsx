@@ -10,19 +10,19 @@ import { IUser } from "../types/types";
 export default function admin({ users }: { users: IUser[] }) {
   return (
     <>
-      <h1 className='text-white text-2xl mb-10'>
-        Total Registrations:{users.length}
-      </h1>
-      <div className='flex flex-col gap-10 text-white overflow-auto max-h-screen'>
-        {users.map((user, index) => (
-          <div key={index}>
-            {Object.entries(user).map(([key, value]) => (
-              <p key={key}>
-                {key}: {JSON.stringify(value)}
-              </p>
-            ))}
-          </div>
-        ))}
+      <div className='text-white overflow-auto max-h-screen'>
+        <h1 className='text-2xl mb-10'>Total Registrations:{users.length}</h1>
+        <div className='flex flex-col gap-10 '>
+          {users.map((user, index) => (
+            <div key={index}>
+              {Object.entries(user).map(([key, value]) => (
+                <p key={key}>
+                  {key}: {JSON.stringify(value)}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
@@ -31,7 +31,8 @@ export default function admin({ users }: { users: IUser[] }) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req, res } = context;
   const session = await getServerSession(req, res, authOptions);
-  if (!session || session.user.role !== "admin") return redirect("/", req.url!);
+  if (!session || session.user.role1 !== "admin")
+    return redirect("/", req.url!);
 
   await dbConnect();
   const users = await User.find({ role: { $ne: "admin", $exists: true } });

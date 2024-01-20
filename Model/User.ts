@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IUser } from "../types/types";
+import { departmentList, roleList } from "../utils/data";
 
 const UserSchema = new mongoose.Schema(
   {
@@ -12,24 +12,26 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       required: true,
     },
-    registrationNum: {
-      type: String,
-      unique: true,
-      default: Math.random().toString(),
-    },
     rollNum: {
       type: String,
       unique: true,
       default: Math.random().toString(),
     },
-    role: {
+    phoneNum: {
       type: String,
-      enum: [
-        "web-developer",
-        "event-manager",
-        "graphics-designer",
-        "content-writer",
-      ],
+      unique: true,
+    },
+    department: {
+      type: String,
+      enum: departmentList,
+    },
+    role1: {
+      type: String,
+      enum: roleList,
+    },
+    role2: {
+      type: String,
+      enum: roleList,
     },
     answers: {
       type: [String],

@@ -11,15 +11,14 @@ export default async function (context: GetServerSidePropsContext) {
   if (!session) return redirect("/", url!);
 
   const { user } = session;
+  const { name, rollNum, department, role1, role2, answers, rating } = user;
 
-  if (!(user.rollNum && user.registrationNum && user.role))
+  if (!(name && rollNum && department && role1 && role2))
     return redirect("/registration", url!);
-  if (
-    user.answers.length < Number(process.env["NEXT_PUBLIC_NUMBER_OF_QUESTION"]!)
-  )
+  if (answers.length < Number(process.env["NEXT_PUBLIC_NUMBER_OF_QUESTION"]!))
     return redirect("/questions", url!);
 
-  if (!user.rating) return redirect("/rating", url!);
+  if (!rating) return redirect("/rating", url!);
 
   return redirect("/thankyou", url!);
 }

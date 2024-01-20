@@ -6,7 +6,7 @@ import middleware from "../utils/middleware";
 export default function Index() {
   return (
     <>
-      <div className='bg-gradient-to-b from-red-700 to-[#17212e] to-25% h-full py-20 px-20 flex relative '>
+      <div className='py-20 px-20 flex relative '>
         <div className='absolute left-10 top-5'>
           <Image src='/mntc.png' alt='logo' width={60} height={60} />
         </div>
@@ -15,7 +15,7 @@ export default function Index() {
             {" "}
             <span className='text-orange-500 block'>Welcome to </span>
             <span className='block'> MNTC</span>
-            Audtitions
+            Auditions
           </p>
           <div className='pr-40'>
             <button

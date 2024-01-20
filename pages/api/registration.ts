@@ -2,15 +2,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 import updateUser from "../../utils/updateUser";
 import errorMessage from "../../utils/ZErrorMessage";
+import { departmentList, roleList } from "../../utils/data";
 
 const IFormDataSchema = z.object({
-  registrationNum: z.string().refine(
-    (val) => {
-      const regex = new RegExp("23U10[0-9]{3}");
-      return val.match(regex);
-    },
-    { message: "Invalid Registration Number" }
-  ),
+  name: z.string().min(3, { message: "Invalid name" }),
   rollNum: z.string().refine(
     (val) => {
       const regex = new RegExp("23[A-Z]80[0-9]{3}");
@@ -20,13 +15,39 @@ const IFormDataSchema = z.object({
       message: "Invalid Roll Number",
     }
   ),
-  role: z.enum([
-    "web-developer",
-    "event-manager",
-    "graphics-designer",
-    "content-writer",
-    "admin",
-  ]),
+  phoneNum: z.string().refine(
+    (val) => {
+      const regex = new RegExp("[6-9][0-9]{9}");
+      return val.match(regex);
+    },
+    {
+      message: "Invalid Phone Number",
+    }
+  ),
+  // ...
+
+  department: z.enum(departmentList, {
+    errorMap: () => {
+      return {
+        message: "Invalid department",
+      };
+    },
+  }),
+
+  role1: z.enum(roleList, {
+    errorMap: () => {
+      return {
+        message: "Invalid domain1",
+      };
+    },
+  }),
+  role2: z.enum(roleList, {
+    errorMap: () => {
+      return {
+        message: "Invalid domain2",
+      };
+    },
+  }),
 });
 
 async function PUT(req: NextApiRequest, res: NextApiResponse) {

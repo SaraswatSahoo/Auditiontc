@@ -1,18 +1,15 @@
 import mongoose from "mongoose";
+import type { departmentList, roleList } from "../utils/data";
 
 export type IUser = {
   _id: mongoose.Types.ObjectId;
   name: string;
   email: string;
-  registrationNum?: string;
   rollNum?: string;
-  role?:
-    | ""
-    | "web-developer"
-    | "event-manager"
-    | "graphics-designer"
-    | "content-writer"
-    | "admin";
+  phoneNum?: string;
+  department: (typeof departmentList)[number] | "";
+  role1?: (typeof roleList)[number] | "";
+  role2?: (typeof roleList)[number] | "";
   answers: string[];
   rating?: number;
 };

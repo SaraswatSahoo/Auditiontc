@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#2D3346] overflow-hidden;
+  @apply bg-gradient-to-b from-[#a43432] to-[#17212e] to-60% h-screen overflow-hidden;
 }
 
 .hoverEffect {
   @apply hover:scale-110 transition-all duration-300;
+}
+
+.inputShadow {
+  @apply shadow-[0px_35px_60px_-15px_rgba(0,0,0,0.2)];
 }
