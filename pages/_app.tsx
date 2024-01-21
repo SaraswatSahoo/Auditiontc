@@ -28,9 +28,10 @@ export default function App({
 
   return (
     <SessionProvider session={session}>
+      <Navbar />
       <ToastContainer />
       <Component {...pageProps} />
-      <Navbar />
+      
     </SessionProvider>
   );
 }
