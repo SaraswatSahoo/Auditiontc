@@ -24,13 +24,14 @@ export default function Registration() {
     role1: "",
     role2: "",
   });
-  const fieldClassName = "flex gap-10 items-center";
-  const titleClassName = "uppercase text-white py-2 font-serif text-2xl w-80";
+  const fieldClassName = "flex laptop:gap-10 items-center";
+  const titleClassName =
+    "uppercase text-white py-2 font-serif laptop:text-2xl w-52 laptop:w-80";
   const inputClassName =
-    "focus:outline-none px-4 py-2 mt-2 rounded-xl bg-white bg-opacity-5 text-white inputShadow w-full h-[3.5rem] placeholder:text-white";
+    "focus:outline-none px-4 py-2 mt-2 rounded-xl bg-white bg-opacity-5 text-white inputShadow w-full h-[3.5rem] placeholder:text-white placeholder:text-sm laptop:placeholder:text-md";
   return (
-    <div className='flex justify-center'>
-      <div className=' w-1/2 mt-10 backdrop-brightness-125 pl-40 pt-5 pr-8 rounded-xl'>
+    <div className='flex justify-center h-screen pt-20'>
+      <div className=' laptop:w-1/2 laptop:backdrop-brightness-125 laptop:pl-40 laptop:pt-5 laptop:pr-8 laptop:rounded-xl px-10'>
         <form onSubmit={submitHandler} className='flex flex-col gap-4'>
           {/* Name */}
           <div className={fieldClassName}>
@@ -140,7 +141,7 @@ export default function Registration() {
           <button
             disabled={loading}
             type='submit'
-            className='bg-neutral-500/[.06] text-white rounded-l capitalize font-extrabold w-40 self-center center text-xl my-6 py-2'
+            className='bg-neutral-500 text-white rounded-xl capitalize font-extrabold w-40 laptop:self-center self-end center text-xl my-6 py-2 hoverEffect'
           >
             {loading && Spinner({ size: "w-8 h-8" })}
             {!loading && <p>Next</p>}

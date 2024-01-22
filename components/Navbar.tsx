@@ -18,7 +18,7 @@ export default function Navbar() {
           />
         </div>
         <div className='text-white'>
-          {session?.user.email}
+          <span className='hidden laptop:inline'>{session?.user.email}</span>
           {status === "authenticated" && (
             <button className={authButtonClass} onClick={() => signOut()}>
               Signout
