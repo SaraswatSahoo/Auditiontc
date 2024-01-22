@@ -31,7 +31,6 @@ export default function App({
       <Navbar />
       <ToastContainer />
       <Component {...pageProps} />
-      
     </SessionProvider>
   );
 }
