@@ -7,10 +7,8 @@ export default function Index() {
   return (
     <>
       <div className='py-20 px-20 flex relative '>
-        <div className='absolute left-10 top-5'>
-          <Image src='/mntc.png' alt='logo' width={60} height={60} />
-        </div>
-        <div className='flex flex-col flex-1 gap-20'>
+       
+        <div className='flex flex-col justify-center flex-1 gap-20'>
           <p className='text-white text-8xl'>
             {" "}
             <span className='text-orange-500 block'>Welcome to </span>
@@ -22,9 +20,9 @@ export default function Index() {
               onClick={() => {
                 signIn("google", { callbackUrl: "/" });
               }}
-              className='px-6 py-2 bg-orange-500 hover:bg-orange-600 hoverEffect rounded-2xl w-full'
+              className='px-6 py-2 bg-orange-500 hover:bg-orange-600 hoverEffect rounded-2xl w-1/2'
             >
-              <span className='text-white text-3xl'> Register</span>
+              <span className='text-white text-2xl'> Register</span>
             </button>
           </div>
         </div>
