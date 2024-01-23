@@ -2,7 +2,7 @@ import React from "react";
 
 type RangeSliderProps = {
   name: string;
-  value: number;
+  value: string;
   changeHandler: (
     e:
       | React.ChangeEvent<HTMLInputElement>
@@ -18,7 +18,7 @@ export default function RangeSlider({
   return (
     <>
       <div className='flex flex-col gap-4 text-white '>
-        <div className='uppercase italic text-4xl'>{name}</div>
+        <div className='uppercase italic text-xl laptop:text-4xl'>{name}</div>
         <div className='flex gap-4'>
           <input
             className='slider w-full'

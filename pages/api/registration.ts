@@ -24,13 +24,12 @@ const IFormDataSchema = z.object({
     .refine(
       (val) => {
         const regex = new RegExp("[6-9][0-9]{9}");
-        return val.match(regex);
+        return val.match(regex) && val.length === 10;
       },
       {
         message: "Invalid Phone Number",
       }
     ),
-  // ...
 
   department: z.enum(departmentList, {
     errorMap: () => {

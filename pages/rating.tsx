@@ -15,10 +15,10 @@ export default function Rating() {
     "creativity" | "dedication" | "punctuality" | "hardworking"
   >;
   const [formData, setFormData] = useState<IFormData>({
-    creativity: 1,
-    hardworking: 1,
-    punctuality: 1,
-    dedication: 1,
+    creativity: "1",
+    hardworking: "1",
+    punctuality: "1",
+    dedication: "1",
   });
   const [loading, setloading] = useState(false);
   const router = useRouter();

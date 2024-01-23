@@ -3,7 +3,7 @@ import { z } from "zod";
 import updateUser from "../../utils/updateUser";
 import errorMessage from "../../utils/ZErrorMessage";
 
-const rangeSliderValidator = z.number().refine(
+const rangeSliderValidator = z.string().refine(
   (val) => {
     const num = Number(val);
     return num >= 1 && num <= 10;

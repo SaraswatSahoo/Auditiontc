@@ -24,8 +24,6 @@ export default async function handler(
   try {
     if (req.method === "PUT") await PUT(req, res);
   } catch (error) {
-    console.log("hit");
-
     return res
       .status(400)
       .json({ success: false, message: errorMessage(error) });
