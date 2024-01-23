@@ -36,7 +36,22 @@ const UserSchema = new mongoose.Schema(
     answers: {
       type: [String],
     },
-    rating: {
+    creativity: {
+      type: Number,
+      min: 1,
+      max: 10,
+    },
+    hardworking: {
+      type: Number,
+      min: 1,
+      max: 10,
+    },
+    punctuality: {
+      type: Number,
+      min: 1,
+      max: 10,
+    },
+    dedication: {
       type: Number,
       min: 1,
       max: 10,

@@ -15,5 +15,6 @@ export const roleList = [
   "Event Manager",
   "Graphics Designer",
   "Content Writer",
+  "Video Editor",
   "admin",
 ] as const;

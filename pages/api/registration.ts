@@ -5,25 +5,31 @@ import errorMessage from "../../utils/ZErrorMessage";
 import { departmentList, roleList } from "../../utils/data";
 
 const IFormDataSchema = z.object({
-  name: z.string().min(3, { message: "Invalid name" }),
-  rollNum: z.string().refine(
-    (val) => {
-      const regex = new RegExp("23[A-Z]80[0-9]{3}");
-      return val.match(regex);
-    },
-    {
-      message: "Invalid Roll Number",
-    }
-  ),
-  phoneNum: z.string().refine(
-    (val) => {
-      const regex = new RegExp("[6-9][0-9]{9}");
-      return val.match(regex);
-    },
-    {
-      message: "Invalid Phone Number",
-    }
-  ),
+  name: z.string().trim().min(3, { message: "Invalid name" }),
+  rollNum: z
+    .string()
+    .trim()
+    .refine(
+      (val) => {
+        const regex = new RegExp("23[A-Z]80[0-9]{3}");
+        return val.match(regex);
+      },
+      {
+        message: "Invalid Roll Number",
+      }
+    ),
+  phoneNum: z
+    .string()
+    .trim()
+    .refine(
+      (val) => {
+        const regex = new RegExp("[6-9][0-9]{9}");
+        return val.match(regex);
+      },
+      {
+        message: "Invalid Phone Number",
+      }
+    ),
   // ...
 
   department: z.enum(departmentList, {

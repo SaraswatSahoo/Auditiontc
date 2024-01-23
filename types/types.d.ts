@@ -11,5 +11,8 @@ export type IUser = {
   role1?: (typeof roleList)[number] | "";
   role2?: (typeof roleList)[number] | "";
   answers: string[];
-  rating?: number;
+  creativity?: number;
+  hardworking?: number;
+  punctuality?: number;
+  dedication?: number;
 };

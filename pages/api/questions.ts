@@ -4,13 +4,12 @@ import updateUser from "../../utils/updateUser";
 import errorMessage from "../../utils/ZErrorMessage";
 
 const numberOfQuestion = Number(process.env["NEXT_PUBLIC_NUMBER_OF_QUESTION"]!);
+
+const errorMsg = "Answer all questions";
 const IAnswerSchema = z.object({
   answers: z
-    .array(z.string())
-    .min(
-      numberOfQuestion,
-      `Answer should be minimum of length ${numberOfQuestion}`
-    ),
+    .array(z.string().trim().min(10, errorMsg))
+    .min(numberOfQuestion, errorMsg),
 });
 
 async function PUT(req: NextApiRequest, res: NextApiResponse) {
@@ -25,6 +24,8 @@ export default async function handler(
   try {
     if (req.method === "PUT") await PUT(req, res);
   } catch (error) {
+    console.log("hit");
+
     return res
       .status(400)
       .json({ success: false, message: errorMessage(error) });

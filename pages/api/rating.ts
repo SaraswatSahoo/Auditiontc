@@ -3,14 +3,19 @@ import { z } from "zod";
 import updateUser from "../../utils/updateUser";
 import errorMessage from "../../utils/ZErrorMessage";
 
+const rangeSliderValidator = z.number().refine(
+  (val) => {
+    const num = Number(val);
+    return num >= 1 && num <= 10;
+  },
+  { message: "Rating should be between 1 and 10" }
+);
+
 const IRatingSchema = z.object({
-  rating: z.string().refine(
-    (val) => {
-      const num = Number(val);
-      return num >= 1 && num <= 10;
-    },
-    { message: "Rating should be between 1 and 10" }
-  ),
+  creativity: rangeSliderValidator,
+  hardworking: rangeSliderValidator,
+  punctuality: rangeSliderValidator,
+  dedication: rangeSliderValidator,
 });
 
 async function PUT(req: NextApiRequest, res: NextApiResponse) {
