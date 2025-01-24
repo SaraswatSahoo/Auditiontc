@@ -7,7 +7,7 @@ export default function Navbar() {
     "bg-slate-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-10";
   return (
     <>
-      <div className='h-20 w-full bg-gradient-to-b from-[#17212e] to-100% fixed flex justify-between p-5'>
+      <div className='h-20 w-full bg-gradient-to-b from-[#17212e] to-100% fixed flex justify-between p-10'>
         <div>
           <Image
             src='/mntc.png'
